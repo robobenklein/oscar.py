@@ -609,7 +609,7 @@ class GitObject(_Base):
         for key in range(2**prefix_length):
             idx_path = base_idx_path.format(key=key)
             bin_path = base_bin_path.format(key=key)
-            datafile = open(bin_path)
+            datafile = open(bin_path, 'rb')
             for line in open(idx_path):
                 chunks = line.strip().split(";")
                 offset, comp_length, sha = chunks[1:4]
